@@ -1,0 +1,60 @@
+$color-orange: #ffbc36;
+
+$color-extra-light-grey: #F7F7F7;
+$color-light-grey: #F0F0F0;
+$color-semi-light-grey: #D6D6D6;
+$color-semi-dark-grey: #666666;
+$color-dark-grey: #585858;
+$color-extra-dark-grey: #4B4B4B;
+
+$color-posts: #5CE6B3;
+$color-infoposts: #3070eb; //#388AEC
+$color-tasks: #FFDB66;
+$color-images: #B62D7F;
+$color-reservations: #C74448;
+
+$color-gradient-posts-1: #1EEEA1;
+$color-gradient-posts-2: #3FD6F8;
+
+$color-gradient-infoposts-1: #34BFFF;
+$color-gradient-infoposts-2: #3C56DA;
+
+$color-gradient-reservations-1: #FE8286;
+$color-gradient-reservations-2: #7435E7;
+
+$color-gradient-tasks-1: #FFDB66;
+$color-gradient-tasks-2: #FF857A;
+
+$color-gradient-images-1: #7966FF;
+$color-gradient-images-2: #BD2771;
+
+
+
+:export {
+  colorDarkGrey: $color-dark-grey;
+  colorSemiLightGrey: $color-semi-light-grey;
+  colorLightGrey: $color-light-grey;
+  colors: {
+    posts: $color-posts;
+    infoposts: $color-infoposts;
+    tasks: $color-tasks;
+    images: $color-images;
+    reservations: $color-reservations;
+  }
+  gradients: {
+    posts1: $color-gradient-posts-1;
+    posts2: $color-gradient-posts-2;
+
+    infoposts1: $color-gradient-infoposts-1;
+    infoposts2: $color-gradient-infoposts-2;
+
+    reservations1: $color-gradient-reservations-1;
+    reservations2: $color-gradient-reservations-2;
+
+    tasks1: $color-gradient-tasks-1;
+    tasks2: $color-gradient-tasks-2;
+
+    images1: $color-gradient-images-1;
+    images2: $color-gradient-images-2;
+  }
+}

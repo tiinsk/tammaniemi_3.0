@@ -3,17 +3,29 @@
   "extends": [
     "tslint:recommended"
   ],
+  "jsRules": {
+
+  },
   "linterOptions": {
     "exclude": [
       "node_modules/**"
     ]
   },
   "rules": {
-    "quotemark": [true, "single"],
+    "quotemark": [true, "single", "avoid-escape"],
+    "trailing-comma": [true, { "multiline": "never", "singleline": "never" }],
     "indent": [true, "spaces", 2],
-    "interface-name": false,
+    //"interface-name": false,
     "ordered-imports": false,
     "object-literal-sort-keys": false,
-    "no-consecutive-blank-lines": false
+    "no-consecutive-blank-lines": false,
+    "object-literal-key-quotes": false,
+    "interface-name": [true, "never-prefix"],
+    "no-var-requires": false,
+    "arrow-parens": false,
+    "max-classes-per-file": [true, 1, "exclude-class-expressions"],
+    "no-unused-variable": true,
+    "no-default-export": false
   }
 }
+

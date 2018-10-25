@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="34px" height="43px" viewBox="0 0 34 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>icon copy 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="icon-copy-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-12-Copy-4" transform="translate(2.000000, 6.000000)" fill="#000000">
+            <path d="M15,31 C6.163444,31 -1,23.836556 -1,15 C-1,6.163444 6.163444,-1 15,-1 C23.836556,-1 31,6.163444 31,15 C31,23.836556 23.836556,31 15,31 Z M15,29 C22.7319865,29 29,22.7319865 29,15 C29,7.2680135 22.7319865,1 15,1 C7.2680135,1 1,7.2680135 1,15 C1,22.7319865 7.2680135,29 15,29 Z" id="Oval-5" fill-rule="nonzero"></path>
+            <path d="M13.3,15.6 C13.3,14.7715729 13.9715729,14.1 14.8,14.1 C15.6284271,14.1 16.3,14.7715729 16.3,15.6 L16.3,22.8598507 C16.3,23.6882779 15.6284271,24.3598507 14.8,24.3598507 C13.9715729,24.3598507 13.3,23.6882779 13.3,22.8598507 L13.3,15.6 Z" id="Line-8" fill-rule="nonzero"></path>
+            <circle id="Oval-6" cx="15" cy="9" r="2"></circle>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="31px" height="43px" viewBox="0 0 31 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>icon copy 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="icon-copy-3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-13-Copy-9" transform="translate(1.000000, 6.000000)" fill="#000000">
+            <path d="M2.0173913,3.25 L2.0173913,28 L26.9826087,28 L26.9826087,3.25 L2.0173913,3.25 Z M2.0173913,1.25 L26.9826087,1.25 C28.0967831,1.25 29,2.1454305 29,3.25 L29,28 C29,29.1045695 28.0967831,30 26.9826087,30 L2.0173913,30 C0.903216853,30 1.36447018e-16,29.1045695 0,28 L0,3.25 C-1.36447018e-16,2.1454305 0.903216853,1.25 2.0173913,1.25 Z" id="Rectangle-16" fill-rule="nonzero"></path>
+            <path d="M2.0173913,10.75 L2.0173913,28 L26.9826087,28 L26.9826087,10.75 L2.0173913,10.75 Z M0,8.75 L29,8.75 L29,28 C29,29.1045695 28.0967831,30 26.9826087,30 L2.0173913,30 C0.903216853,30 1.36447018e-16,29.1045695 0,28 L0,8.75 Z" id="Rectangle-23" fill-rule="nonzero"></path>
+            <rect id="Rectangle-18" x="5.04347826" y="15" width="3.7826087" height="3.75" rx="1"></rect>
+            <rect id="Rectangle-18-Copy-3" x="5.04347826" y="21.25" width="3.7826087" height="3.75" rx="1"></rect>
+            <rect id="Rectangle-18-Copy" x="12.6086957" y="15" width="3.7826087" height="3.75" rx="1"></rect>
+            <rect id="Rectangle-18-Copy-4" x="12.6086957" y="21.25" width="3.7826087" height="3.75" rx="1"></rect>
+            <rect id="Rectangle-18-Copy-2" x="20.173913" y="15" width="3.7826087" height="3.75" rx="1"></rect>
+            <rect id="Rectangle-18-Copy-5" x="20.173913" y="21.25" width="3.7826087" height="3.75" rx="1"></rect>
+            <polygon id="Line-9-Copy" fill-rule="nonzero" points="7.94347826 5.375 5.92608696 5.375 5.92608696 -0.375 7.94347826 -0.375"></polygon>
+            <polygon id="Line-9-Copy-2" fill-rule="nonzero" points="23.073913 5.375 21.0565217 5.375 21.0565217 -0.375 23.073913 -0.375"></polygon>
+        </g>
+    </g>
+</svg>

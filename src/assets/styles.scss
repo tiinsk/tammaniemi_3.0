@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,700,700i|Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Roboto:300,300i,400,400i');
+
+@import "colors";
+@import "variables";
+@import "material-icons";
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: $font-default;
+  font-size: $font-size-default;
+  font-weight: $font-weight-regular;
+
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 5rem;
+  font-weight: $font-weight-light;
+}
+
+h2 {
+  font-weight: $font-weight-regular;
+  font-size: $font-size-xxlarge;
+  color: $color-extra-dark-grey;
+}
+
+h3 {
+  font-size: $font-size-xlarge;
+  font-weight: $font-weight-regular;
+}

@@ -1,0 +1,50 @@
+$font-default: 'Lato', sans-serif;
+$font-body: 'Open Sans', sans-serif;
+$font-roboto: 'Roboto', sans-serif;
+
+$font-weight-thin: 100;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-heavy: 900;
+
+$font-size-xxlarge: 3rem;
+$font-size-xlarge: 2rem;
+$font-size-large: 1.8rem;
+
+$font-size-default: 1.5rem;
+
+$font-size-medium: 1.4rem;
+$font-size-small: 1.3rem;
+$font-size-xsmall: 1.2rem;
+$font-size-xxsmall: 1.1rem;
+$font-size-xxxsmall: 1rem;
+
+$base-size: 25px;
+
+$z-index-menus: 1000;
+
+$navbar-width: 65px;
+$header-hight: 300px;
+
+@mixin multiline-truncate($num-lines, $line-height) {
+  display: block;
+  display: -webkit-box;
+  height: #{$num-lines * $line-height}px;
+  line-height: #{$line-height}px;
+  -webkit-line-clamp: $num-lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+$breakpoint-small-window: 1000px;
+$breakpoint-mobile: 800px;
+
+
+:export {
+  mobile: $breakpoint-mobile;
+  small: $breakpoint-small-window;
+}
