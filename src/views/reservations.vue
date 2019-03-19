@@ -1,41 +1,36 @@
 <template>
-  <page class="reservations">
+  <page class="reservations" background-color="#f6f1ff">
     <image-menu
       slot="menu"
-      image="reservations_whole"
-      overlayColor="#3f3b73"
-      :overlayOpacity="0.33"
-      title="Reservations"
-      position-x="910px"
-      :contentStyle="{'background': 'inherit', 'border-radius': '5px'}"
+      type="reservations"
+      :blur-background="true"
     >
       <calendar
+        slot="navigation"
         :year="year"
         :month="month"
         :reservations="reservations"
         @change="changeRange"
       />
     </image-menu>
-    <div slot="header">
-      <page-header
-        title="Reservations"
-        icon="calendar"
-        type="reservations"
-        :count="reservations.length"
-      />
-    </div>
-    <div slot="content">
+    <page-header
+      slot="header"
+      title="Reservations"
+      icon="calendar"
+      type="reservations"
+      :count="reservations.length"
+    />
+    <template slot="content">
       <reservation
         v-for="reservation in reservations"
         :key="reservation.id"
         :reservation="reservation"
       />
-    </div>
+    </template>
   </page>
 </template>
 
 <script>
-
 import ImageMenu from '../components/common/image-menu.vue';
 import Page from '../components/common/page.vue';
 import PageHeader from '../components/common/page-header.vue';
@@ -65,20 +60,26 @@ export default {
     }
   },
   created() {
-    this.fetchReservations();
     if (!this.year || !this.month) {
-      const currDate = new Date();
-      const currentMonth = currDate.getMonth() + 1;
-      const currentYear = currDate.getFullYear();
-      this.changeRange(currentYear, currentMonth);
+      this.initRange();
     }
+    this.fetchReservations();
   },
   watch: {
     '$route.query'() {
+      if (!this.year || !this.month) {
+        this.initRange();
+      }
       this.fetchReservations();
     }
   },
   methods: {
+    initRange() {
+      const currDate = new Date();
+      const currentMonth = currDate.getMonth() + 1;
+      const currentYear = currDate.getFullYear();
+      this.changeRange(currentYear, currentMonth);
+    },
     async fetchReservations() {
       this.reservations = await api.reservations.getAll({
         year: this.year,
@@ -86,10 +87,13 @@ export default {
       });
     },
     changeRange(year, month) {
-      this.$router.push({name: 'reservations', query: {
-        year,
-        month
-      }});
+      this.$router.push({
+        name: 'reservations',
+        query: {
+          year,
+          month
+        }
+      });
     }
   }
 };
@@ -97,10 +101,5 @@ export default {
 
 <style scoped lang="scss">
 .reservations {
-  background-image: linear-gradient(
-      to bottom,
-      white,
-      #f6f1ff 1000px
-  );
 }
 </style>

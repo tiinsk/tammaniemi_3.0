@@ -15,14 +15,13 @@
   </card>
 </template>
 <script>
-import Vue from 'vue';
 import Icon from '../common/icon.vue';
 import Card from '../common/card.vue';
 import colors from '../../assets/_colors.scss';
 import EventInfo from '../common/event-info.vue';
 import EventContent from '../common/event-content.vue';
 
-export default Vue.extend({
+export default {
   components: {
     Icon,
     Card,
@@ -47,7 +46,7 @@ export default Vue.extend({
       return 'posts';
     }
   }
-});
+};
 </script>
 <style scoped lang="scss">
 .post {

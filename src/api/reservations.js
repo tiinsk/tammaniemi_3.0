@@ -1,9 +1,8 @@
-import reservations, {counts} from '../fake-data/reservations';
+import reservations from '../fake-data/reservations';
 
 export default {
-  getAll: (params) => {
+  getAll: params => {
     return Promise.resolve(reservations);
   }
 };
-
 

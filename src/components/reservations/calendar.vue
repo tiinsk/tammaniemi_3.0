@@ -4,15 +4,15 @@
       <div class="year">
         <span>{{ year }}</span>
         <div class="nav-arrows">
-          <i class="material-icons" @click="$emit('change', year-1, month)">chevron_left</i>
-          <i class="material-icons" @click="$emit('change', year+1, month)">chevron_right</i>
+          <i class="material-icons" @click="changeYear(year-1)">chevron_left</i>
+          <i class="material-icons" @click="changeYear(year+1)">chevron_right</i>
         </div>
       </div>
       <div class="month">
         <span>{{ monthText }}</span>
         <div class="nav-arrows">
-          <i class="material-icons" @click="$emit('change', year, month-1)">chevron_left</i>
-          <i class="material-icons" @click="$emit('change', year, month+1)">chevron_right</i>
+          <i class="material-icons" @click="changeMonth(month-1)">chevron_left</i>
+          <i class="material-icons" @click="changeMonth(month+1)">chevron_right</i>
         </div>
       </div>
       <div class="weekdays">
@@ -51,14 +51,17 @@
 </template>
 
 <script>
-import {getDate, getMonth} from 'date-fns';
-import {weekdays, eachDayOfCalendarMonth, monthText, splittedReservations} from '../../utils/dates';
-import {gradient} from '../../utils/gradient';
+import { getDate, getMonth } from 'date-fns';
+import {
+  weekdays,
+  eachDayOfCalendarMonth,
+  monthText,
+  splittedReservations
+} from '../../utils/dates';
+import { gradient } from '../../utils/gradient';
 
 export default {
-  components: {
-
-  },
+  components: {},
   props: {
     year: {
       type: Number,
@@ -74,20 +77,18 @@ export default {
     }
   },
   data() {
-    return {
-
-    };
+    return {};
   },
   computed: {
     dates() {
-      return eachDayOfCalendarMonth(this.year, this.month-1);
+      return eachDayOfCalendarMonth(this.year, this.month - 1);
     },
     weekdays() {
       console.log(this.splittedReservations);
       return weekdays();
     },
     monthText() {
-      return monthText(this.month-1);
+      return monthText(this.month - 1);
     },
     splittedReservations() {
       return splittedReservations(this.reservations);
@@ -96,9 +97,7 @@ export default {
       return gradient('reservations', 'to right');
     }
   },
-  watch: {
-
-  },
+  watch: {},
   methods: {
     getMonth(date) {
       return getMonth(date);
@@ -106,12 +105,17 @@ export default {
     getDate(date) {
       return getDate(date);
     },
-    addMonths(month) {
-      const newMonth = this.month + month;
-      this.$emit('change' )
+    changeMonth(newMonth) {
+      if (newMonth < 1) {
+        this.$emit('change', this.year - 1, 12);
+      } else if (newMonth > 12) {
+        this.$emit('change', this.year + 1, 1);
+      } else {
+        this.$emit('change', this.year, newMonth);
+      }
     },
-    addYears(year) {
-
+    changeYear(newYear) {
+      this.$emit('change', newYear, this.month);
     }
   }
 };
@@ -121,35 +125,27 @@ export default {
 .calendar {
   width: 325px;
 
-  background: inherit;
   position: relative;
+  display: flex;
+  align-items: center;
 
   overflow: hidden;
 
   border-radius: 5px;
 
-  &:before{
-    content: ' ';
-    background: inherit;
-    position: absolute;
-    left: -25px;
-    right: -25px;
-    top: -25px;
-    bottom: -25px;
-    box-shadow: inset 0 0 0 3000px rgba(197, 205, 249, 0.4);
-    filter: blur(10px);
-  }
-
   .content-wrapper {
     position: relative;
     z-index: 2;
     padding: $base-size;
+    width: 100%;
 
     .nav-arrows {
       color: white;
       cursor: pointer;
+      user-select: none;
+
       .material-icons:hover {
-        color: #F27B8F;
+        color: #f27b8f;
       }
     }
 
@@ -163,10 +159,10 @@ export default {
     }
 
     .month {
-      color: #F27B8F;
+      color: #f27b8f;
       font-size: 3.5rem;
       text-transform: uppercase;
-      padding-bottom: $base-size*2;
+      padding-bottom: $base-size * 2;
       display: flex;
       justify-content: space-between;
     }
@@ -210,15 +206,14 @@ export default {
           align-items: center;
 
           .reservation {
-            height: 60%;
+            height: 65%;
             position: absolute;
             left: 0;
             z-index: 0;
             display: inline-table; //solves rounding problems -> wtf
 
             &--beginning {
-              border-top-left-radius: 12px;
-              border-bottom-left-radius: 12px;
+              border-radius: 12px/50%;
             }
             &--ending {
               border-top-right-radius: 12px;
@@ -230,12 +225,18 @@ export default {
             position: relative;
             z-index: 1;
           }
-
         }
         &--diff-month {
           color: #949494;
         }
       }
+    }
+  }
+  @media (max-width: $breakpoint-mobile) {
+    width: 100%;
+    height: 100%;
+    .content-wrapper {
+      padding: $base-size/2;
     }
   }
 }

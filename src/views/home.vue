@@ -2,11 +2,7 @@
   <page>
     <image-menu
       slot="menu"
-      image="home_whole"
-      overlayColor="#8093B8"
-      :overlayOpacity="0.3"
-      title="Tammaniemi"
-      position-x="1540px"
+      type="home"
     />
     <div slot="header">
       <page-header

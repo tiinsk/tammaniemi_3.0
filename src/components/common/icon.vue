@@ -2,10 +2,9 @@
   <div class="icon" :style="style" v-html="icon"></div>
 </template>
 
-<script lang="ts">
-import Vue, { VNode } from 'vue';
+<script>
 
-export default Vue.extend({
+export default {
   props: {
     type: {
       type: String,
@@ -25,10 +24,10 @@ export default Vue.extend({
     }
   },
   computed: {
-    icon(): VNode {
+    icon() {
       return require(`@/assets/images/icons/${this.type}.svg?inline`);
     },
-    style(): object {
+    style() {
       return {
         '--stroke-color': this.color,
         '--stroke-opacity': this.opacity,
@@ -37,7 +36,7 @@ export default Vue.extend({
       };
     }
   }
-});
+};
 </script>
 
 <style lang="scss">

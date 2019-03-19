@@ -27,7 +27,7 @@
   </background>
 </template>
 
-<script lang="ts">
+<script>
 import Icon from '../components/common/icon.vue';
 import Background from '../components/login/login-background.vue';
 import LabeledInput from '../components/common/labeled-input.vue';

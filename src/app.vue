@@ -5,10 +5,9 @@
   </div>
 </template>
 <script>
-import Vue from 'vue';
 import NavBarLeft from './components/navigation/nav-bar-left.vue';
 
-export default Vue.extend({
+export default {
   components: {
     NavBarLeft
   },
@@ -17,7 +16,7 @@ export default Vue.extend({
       return !['login', 'register'].includes(this.$route.name);
     }
   }
-});
+};
 </script>
 <style lang="scss">
 @import 'assets/styles';

@@ -2,21 +2,17 @@
   <page class="posts">
     <image-menu
       slot="menu"
-      image="kuva"
-      overlayColor="#524CA4"
-      :overlayOpacity="0.33"
-      title="Posts"
-      position-x="1705px"
+      type="posts"
     >
-      <page-menu>
-        <page-menu-item
+      <menu-list slot="navigation">
+        <menu-list-item
           v-for="year in counts"
           :key="year.year"
           :to-link="{name: 'posts', query: {year: year.year}}"
           :title="year.year"
           :count="year.count"
         />
-      </page-menu>
+      </menu-list>
     </image-menu>
     <div slot="header">
       <page-header
@@ -39,8 +35,8 @@
 <script>
 import ImageMenu from '../components/common/image-menu.vue';
 import Page from '../components/common/page.vue';
-import PageMenu from '../components/navigation/page-menu.vue';
-import PageMenuItem from '../components/navigation/page-menu-item.vue';
+import MenuList from '../components/navigation/menu-list.vue';
+import MenuListItem from '../components/navigation/menu-list-item.vue';
 import PageHeader from '../components/common/page-header.vue';
 import Post from '../components/events/post.vue';
 import api from '../api/index';
@@ -49,15 +45,15 @@ export default {
   components: {
     ImageMenu,
     Page,
-    PageMenu,
-    PageMenuItem,
+    MenuList,
+    MenuListItem,
     PageHeader,
     Post
   },
   data() {
     return {
       posts: [],
-      counts: {}
+      counts: []
     };
   },
   computed: {
@@ -93,10 +89,6 @@ export default {
 
 <style scoped lang="scss">
 .posts {
-  background-image: linear-gradient(
-      to bottom,
-      white,
-      #f6f6ff 1000px
-  );
+  background-image: linear-gradient(to bottom, white, #f6f6ff 1000px);
 }
 </style>

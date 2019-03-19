@@ -2,18 +2,17 @@
   <router-link
     class="menu-item"
     :to="{name: route, query}"
-    :class="{active: $route.name === route && !noActive}"
+    :class="[{active: $route.name === route && !noActive}, activePosition]"
     :style="activeBorder"
   >
-    <icon :type="type" color="white" size="30px"/>
+    <icon :type="type" :color="iconColor" size="30px"/>
   </router-link>
 </template>
-<script lang="ts">
-import Vue from 'vue';
+<script>
 import Icon from '../common/icon.vue';
 import colors from '../../assets/_colors.scss';
 
-export default Vue.extend({
+export default {
   components: {
     Icon
   },
@@ -33,31 +32,40 @@ export default Vue.extend({
     noActive: {
       type: Boolean,
       default: false
+    },
+    iconColor: {
+      type: String,
+      default: 'white'
+    },
+    activePosition: {
+      type: String,
+      default: 'right',
+      validator: val => ['top', 'right'].includes(val)
     }
   },
   computed: {
-    activeBorder(): object {
-      if ( this.$route.name === 'posts' ) {
+    activeBorder() {
+      if (this.$route.name === 'posts') {
         return {
           'border-color': colors['colors-posts']
         };
       }
-      if ( this.$route.name === 'infoposts' ) {
+      if (this.$route.name === 'infoposts') {
         return {
           'border-color': colors['colors-infoposts']
         };
       }
-      if ( this.$route.name === 'tasks' ) {
+      if (this.$route.name === 'tasks') {
         return {
           'border-color': colors['colors-tasks']
         };
       }
-      if ( this.$route.name === 'reservations' ) {
+      if (this.$route.name === 'reservations') {
         return {
           'border-color': colors['colors-reservations']
         };
       }
-      if ( this.$route.name === 'images' ) {
+      if (this.$route.name === 'images') {
         return {
           'border-color': colors['colors-images']
         };
@@ -68,7 +76,7 @@ export default Vue.extend({
       }
     }
   }
-});
+};
 </script>
 <style scoped lang="scss">
 .menu-item {
@@ -78,12 +86,20 @@ export default Vue.extend({
 
   width: 100%;
   height: $navbar-width;
-  &.active {
-    padding-left: 5px;
+  border-width: 0;
+  padding: 0 5px;
+  z-index: 2;
+
+  &.active.right {
     border-width: 5px;
     border-right-style: solid;
     width: calc(100% + 1px);
     padding-right: 1px;
+  }
+
+  &.active.top {
+    border-width: 5px;
+    border-top-style: solid;
   }
 }
 </style>

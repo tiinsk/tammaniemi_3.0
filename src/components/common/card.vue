@@ -3,7 +3,7 @@
     <div v-if="showIcon" class="icon-wrapper">
       <slot name="icon"/>
     </div>
-    <div class="content">
+    <div class="content" :style="contentStyle">
       <slot name="content"/>
     </div>
   </div>
@@ -15,6 +15,10 @@ export default Vue.extend({
   components: {
   },
   props: {
+    contentStyle: {
+      type: Object,
+      default: undefined
+    },
     showIcon: {
       type: Boolean,
       default: false
@@ -46,6 +50,9 @@ export default Vue.extend({
   .content {
     padding: $base-size;
     flex-grow: 1;
+  }
+  @media (max-width: $breakpoint-mobile) {
+    margin: $base-size/2;
   }
 }
 </style>

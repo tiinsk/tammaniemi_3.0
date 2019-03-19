@@ -28,6 +28,7 @@ $z-index-menus: 1000;
 
 $navbar-width: 65px;
 $header-hight: 300px;
+$menu-width: 475px;
 
 @mixin multiline-truncate($num-lines, $line-height) {
   display: block;
@@ -41,10 +42,10 @@ $header-hight: 300px;
 }
 
 $breakpoint-small-window: 1000px;
-$breakpoint-mobile: 800px;
+$breakpoint-mobile: 650px;
 
 
 :export {
   mobile: $breakpoint-mobile;
-  small: $breakpoint-small-window;
+  smallWindow: $breakpoint-small-window;
 }

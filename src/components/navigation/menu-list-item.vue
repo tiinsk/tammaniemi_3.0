@@ -1,6 +1,6 @@
 <template>
   <router-link
-    class="page-menu-item"
+    class="menu-list-item"
     :to="toLink"
     active-class="active"
     exact
@@ -11,10 +11,8 @@
 
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-
-export default Vue.extend({
+<script>
+export default {
   props: {
     title: {
       type: String,
@@ -33,16 +31,13 @@ export default Vue.extend({
       required: true
     }
   },
-  computed: {
-
-  }
-});
+  computed: {}
+};
 </script>
 
 <style scoped lang="scss">
-.page-menu-item {
+.menu-list-item {
   padding: $base-size/2 $base-size;
-  padding-left: 45px;
 
   position: relative;
 

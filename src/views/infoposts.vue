@@ -2,13 +2,10 @@
   <page class="infoposts">
     <image-menu
       slot="menu"
-      image="infoposts_whole"
-      overlayColor="#a0a3af"
-      :overlayOpacity="0.40"
-      position-x="1080px"
+      type="infoposts"
     >
-      <page-menu>
-        <page-menu-item
+      <menu-list slot="navigation">
+        <menu-list-item
           v-for="category in $orderedCategories"
           :key="category"
           type="infoposts"
@@ -18,7 +15,7 @@
           :icon="$categoryIcons[category]"
           :count="counts[category]"
         />
-      </page-menu>
+      </menu-list>
     </image-menu>
     <div slot="header">
       <page-header
@@ -42,8 +39,8 @@
 
 <script>
 import ImageMenu from '../components/common/image-menu.vue';
-import PageMenu from '../components/navigation/page-menu.vue';
-import PageMenuItem from '../components/navigation/page-menu-item.vue';
+import MenuList from '../components/navigation/menu-list.vue';
+import MenuListItem from '../components/navigation/menu-list-item.vue';
 import Page from '../components/common/page.vue';
 import Infopost from '../components/events/infopost.vue';
 import PageHeader from '../components/common/page-header.vue';
@@ -54,8 +51,8 @@ export default {
   components: {
     ImageMenu,
     Page,
-    PageMenu,
-    PageMenuItem,
+    MenuList,
+    MenuListItem,
     Infopost,
     PageHeader
   },

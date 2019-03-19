@@ -24,4 +24,4 @@ module.exports = {
         .use('file')
           .loader('file-loader')
   }
-}
+};

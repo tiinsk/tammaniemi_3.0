@@ -1,7 +1,8 @@
-import { throttle } from 'lodash';
+import { throttle } from 'lodash/fp';
 import Vue from 'vue';
 
 import variables from '../assets/_variables.scss';
+import { WindowSize } from '../types/window-size';
 
 export default {
   install(vueInstance) {
@@ -13,16 +14,16 @@ export default {
 
     const onWindowResize = throttle(500, () => {
       if (window.matchMedia(`(max-width: ${variables.mobile})`).matches) {
-        store.widthMode = 'mobile';
+        store.widthMode = WindowSize.MOBILE;
       } else if (
         window.matchMedia(
           `(min-width: ${variables.mobile}) and
-          (max-width: ${variables.desktop})`
+          (max-width: ${variables.smallWindow})`
         ).matches
       ) {
-        store.widthMode = 'desktop';
+        store.widthMode = WindowSize.SMALL_DESKTOP;
       } else {
-        store.widthMode = 'desktop-large';
+        store.widthMode = WindowSize.DESKTOP;
       }
     });
 

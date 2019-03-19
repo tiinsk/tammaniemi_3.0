@@ -2,11 +2,7 @@
   <page class="create">
     <header-image
       slot="menu"
-      image="home_whole"
-      overlayColor="#8093B8"
-      :overlayOpacity="0.3"
-      title="Create new"
-      position-x="1540px"
+      type="create"
     />
     <div slot="header">
       <page-header

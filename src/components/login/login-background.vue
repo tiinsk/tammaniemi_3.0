@@ -7,10 +7,9 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
+<script>
 
-export default Vue.extend({
+export default {
   props: {
     height: {
       type: String,
@@ -21,7 +20,7 @@ export default Vue.extend({
       required: true
     }
   }
-});
+};
 </script>
 
 <style scoped lang="scss">

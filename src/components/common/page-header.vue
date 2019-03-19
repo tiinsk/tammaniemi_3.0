@@ -1,8 +1,11 @@
 <template>
   <div class="page-header">
+    <div class="menu-button" @click="toggleMenu">
+      <icon type="menu" size="30px"/>
+    </div>
     <div class="content">
       <h1 class="title">{{ title }}</h1>
-      <div class="tag-wrapper">
+      <div class="tag-wrapper" v-if="!$slots.tags">
         <div
           v-if="subtitle"
           class="tag subtitle"
@@ -13,18 +16,18 @@
         </div>
         <div class="tag count-box" :style="backgroundStyle">{{ count }} kpl</div>
       </div>
+      <slot name="tags"/>
     </div>
   </div>
 
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-
+<script>
 import Icon from '../common/icon.vue';
-import {gradient} from '../../utils/gradient';
+import { gradient } from '../../utils/gradient';
+import { mapMainActions, MainActions } from '../../store/main';
 
-export default Vue.extend({
+export default {
   components: {
     Icon
   },
@@ -51,18 +54,27 @@ export default Vue.extend({
     }
   },
   computed: {
-    backgroundStyle(): object {
+    backgroundStyle() {
       return gradient(this.type, 'to right');
     }
+  },
+  methods: {
+    ...mapMainActions({
+      toggleMenu: MainActions.TOGGLE_MENU
+    })
   }
-});
+};
 </script>
 
 <style scoped lang="scss">
 .page-header {
-  padding: $base-size*4 $base-size;
-  display: flex;
-  align-items: center;
+  padding: $base-size * 4 $base-size;
+
+  .menu-button {
+    display: none;
+    padding: 0 $base-size/2 $base-size/2 0;
+    cursor: pointer;
+  }
 
   .tag-wrapper {
     display: flex;
@@ -89,22 +101,19 @@ export default Vue.extend({
       margin-right: $base-size/4;
 
       &.subtitle {
-        padding-right: 3*$base-size/4;
+        padding-right: 3 * $base-size/4;
 
         .icon {
           margin-right: $base-size/4;
         }
       }
-
-      &.count-box {
-      }
     }
   }
-
-  .content {
-
+  @media (max-width: $breakpoint-mobile) {
+    padding: $base-size $base-size/2;
+    .menu-button {
+      display: inline-block;
+    }
   }
-
-
 }
 </style>

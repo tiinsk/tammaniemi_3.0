@@ -10,11 +10,10 @@
     </div>
   </div>
 </template>
-<script lang="ts">
-import Vue from 'vue';
+<script>
 import Icon from '../common/icon.vue';
 
-export default Vue.extend({
+export default {
   components: {
     Icon
   },
@@ -38,7 +37,7 @@ export default Vue.extend({
       this.open = !this.open;
     }
   }
-});
+};
 </script>
 <style scoped lang="scss">
 

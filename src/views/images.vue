@@ -2,10 +2,7 @@
   <page class="images">
     <header-image
       slot="menu"
-      image="login"
-      overlayColor="#768DB5"
-      :overlayOpacity="0.23"
-      title="Gallery"
+      type="images"
     />
     <div slot="header">
       <page-header
@@ -19,19 +16,18 @@
   </page>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
+<script>
 import HeaderImage from '../components/common/image-menu.vue';
 import Page from '../components/common/page.vue';
 import PageHeader from '../components/common/page-header.vue';
 
-export default Vue.extend({
+export default {
   components: {
     HeaderImage,
     Page,
     PageHeader
   }
-});
+};
 </script>
 
 <style scoped lang="scss">
